@@ -1,3 +1,12 @@
 <div id='container'>
   <!-- Your html here -->
+  <h1>links</h1>
+  <form name="links" ng-submit="getLinks()">
+ 	<input type="text" ng-model="data.links">
+ 	<ul>
+ 		<li ng-click="remove($index)" ng-repeat="link in ___ | filter:links?">{{ link.data.title }}</li>
+ 	</ul>
+ 	<button>getting links</button>
+  </form>
+  <!-- should have a form that will allow user to filter input q  -->
 </div>
