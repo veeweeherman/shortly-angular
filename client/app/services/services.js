@@ -11,8 +11,20 @@ angular.module('shortly.services', [])
       return resp.data;
     })
   }
+  var addLink = function(url) {
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: url
+    })
+    .then(function(resp) {
+      return resp.data;
+    })
+  }
+
   return {
-    getLinks: getLinks
+    getLinks: getLinks,
+    addLink: addLink
   };
 })
 
@@ -39,7 +51,7 @@ angular.module('shortly.services', [])
   var signup = function (user) {
     return $http({
       method: 'POST',
-      url: '/api/users/signup',
+      url: '/api/users/signup', 
       data: user
     })
     .then(function (resp) {
