@@ -1,11 +1,15 @@
 <div id='container'>
-<!-- Your code here -->
-	<h1>shorten</h1>
-  <form name="shorten" ng-submit='addLink()'>
-		<input type="url" ng-model='link.url'>
-		<button><!-- <a href="#/links"> -->addlinks<!-- </a> --></button>
-	</form>
 
+  <form name="shorten" ng-submit='addLink()'>
+		<input name="link" type="url" ng-model='link.url' placeholder="enter URL" required ng-class="{'error': shorten.$invalid && shorten.$dirty}"/>
+		<button type="submit" value="Shorten" ng-diabled="shorten.$invalid">addlinks</button>
+	</form>
+  <div ng-if='shorten.link.$error.required && shorten.$dirty' class="message">
+    <h2>put in a freakin URL</h2>
+  </div>
+  <div ng-show='shorten.link.$error.url && shorten.$dirty' class="message">
+    <h2>WRONG URL DUHHHHHH</h2>
+  </div> 
 </div>
 
 
